@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,12 +16,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Subir();
+        LimitandoVelocidadeDecida();
+    }
+
+    public void Subir()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
             rb.velocity = Vector2.up * velocidade;
+    }
 
-        if(rb.velocity.y < -velocidade)
-        {
+    public void LimitandoVelocidadeDecida()
+    {
+        if (rb.velocity.y < -velocidade)
             rb.velocity = Vector2.down * velocidade;
-        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneManager.LoadScene("Jogo");
     }
 }
