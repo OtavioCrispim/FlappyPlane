@@ -307,3 +307,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
+  obstaculo: {fileID: 5353225984973101934}
