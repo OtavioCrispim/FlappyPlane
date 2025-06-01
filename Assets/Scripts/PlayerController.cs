@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         Subir();
         LimitandoVelocidadeDecida();
+        GameOverLimiteAltura();
     }
 
     public void Subir()
@@ -30,6 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.velocity.y < -velocidade)
             rb.velocity = Vector2.down * velocidade;
+    }
+
+    private void GameOverLimiteAltura()
+    {
+       if (transform.position.y >= 5.5f ||  transform.position.y <= -5.5f)
+            SceneManager.LoadScene("Jogo");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

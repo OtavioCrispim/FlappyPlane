@@ -13,6 +13,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private float positionMax = 2.5f;
     private float pontos = 0;
     [SerializeField] private TMP_Text pontosText;
+    [SerializeField] private TMP_Text levelText;
+    public int level { get; private set; } = 1;
+    private float nextLevel = 10f;
+    [SerializeField] private float limiteTimerMin = 1f;
+    [SerializeField] private float limiteTimerMax = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +31,18 @@ public class GameController : MonoBehaviour
     {
         Pontos();
         CriaObstaculo();
+        GanhaLevel();
+    }
+
+    private void GanhaLevel()
+    {
+        levelText.text = level.ToString();
+        if(pontos > nextLevel)
+        {
+            level++;
+            nextLevel *= 2;
+
+        }
     }
 
     private void Pontos()
@@ -38,7 +56,8 @@ public class GameController : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            timer = TimerAleatorio(1f, 3f);
+            limiteTimerMin = limiteTimerMin > 0.25f ? limiteTimerMin / level : 0.25f;
+            timer = TimerAleatorio(limiteTimerMin, limiteTimerMax);
             position.y = Random.Range(positionMin, positionMax);
             Instantiate(obstaculo, position, Quaternion.identity);
         }

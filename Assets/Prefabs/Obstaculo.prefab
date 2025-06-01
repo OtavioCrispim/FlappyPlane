@@ -306,5 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1283f8326bcd30347a1eb35ffe037e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 5
+  velocidade: 0
   obstaculo: {fileID: 5353225984973101934}
+  gameController: {fileID: 0}

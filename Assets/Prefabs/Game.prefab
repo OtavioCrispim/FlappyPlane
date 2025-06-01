@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9119477388128725636}
+  - component: {fileID: 6594546158480461673}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -31,3 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6594546158480461673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934955495343448171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2408edac4f568a44a13282e2c446571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  obstaculo: {fileID: 5353225984973101934, guid: da21b110dcf9fac4da01910e5e1f89a9, type: 3}
+  position: {x: 12, y: 0, z: 0}
+  positionMin: -0.5
+  positionMax: 2.5
+  pontosText: {fileID: 0}
+  levelText: {fileID: 0}
+  nextLevel: 2
