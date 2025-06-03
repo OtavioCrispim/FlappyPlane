@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private void GameOverLimiteAltura()
     {
        if (transform.position.y >= 5.5f ||  transform.position.y <= -5.5f)
-            SceneManager.LoadScene("Jogo");
+            SceneManager.LoadScene("Inicio");
     }
 
     private GameObject CriandoPuff()
@@ -57,6 +57,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("Jogo");
+        SceneManager.LoadScene("Inicio");
     }
 }

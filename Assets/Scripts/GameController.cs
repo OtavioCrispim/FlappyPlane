@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private float timer;
+    private float timer;
     [SerializeField] private GameObject obstaculo;
     [SerializeField] private Vector3 position;
     [SerializeField] private float positionMin = -0.5f;
