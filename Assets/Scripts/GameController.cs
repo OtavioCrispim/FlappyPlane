@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
 
     private void Pontos()
     {
-        pontos += Time.deltaTime;
+        pontos += Time.deltaTime * level;
         pontosText.text =$"Pontos:  {Mathf.Round(pontos).ToString()}";
     }
 
