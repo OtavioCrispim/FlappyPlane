@@ -51,4 +51,6 @@ MonoBehaviour:
   positionMax: 2.5
   pontosText: {fileID: 0}
   levelText: {fileID: 0}
-  nextLevel: 2
+  limiteTimerMin: 1
+  limiteTimerMax: 3
+  levelUpSound: {fileID: 8300000, guid: e062f2c23f2286941b07b5c13856d721, type: 3}

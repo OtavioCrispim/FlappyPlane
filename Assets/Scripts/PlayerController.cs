@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]private float velocidade = 5f;
+    [SerializeField] private GameObject puff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +20,17 @@ public class PlayerController : MonoBehaviour
     {
         Subir();
         LimitandoVelocidadeDecida();
-        GameOverLimiteAltura();
+        GameOverLimiteAltura();       
     }
 
     public void Subir()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             rb.velocity = Vector2.up * velocidade;
+            GameObject puffCriado = CriandoPuff();
+            DestroyPuff(puffCriado);
+        }
     }
 
     public void LimitandoVelocidadeDecida()
@@ -37,6 +43,16 @@ public class PlayerController : MonoBehaviour
     {
        if (transform.position.y >= 5.5f ||  transform.position.y <= -5.5f)
             SceneManager.LoadScene("Jogo");
+    }
+
+    private GameObject CriandoPuff()
+    {
+        return Instantiate(puff, transform.position, Quaternion.identity);      
+    }
+
+    private void DestroyPuff(GameObject puff)
+    {
+        Destroy(puff, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

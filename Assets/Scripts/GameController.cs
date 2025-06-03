@@ -18,12 +18,15 @@ public class GameController : MonoBehaviour
     private float nextLevel = 10f;
     [SerializeField] private float limiteTimerMin = 1f;
     [SerializeField] private float limiteTimerMax = 3f;
+    [SerializeField] private AudioClip levelUpSound;
+    private Vector3 positionCam;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = TimerAleatorio(0.1f, 1f);
-        //pontosText;
+
+        positionCam = Camera.main.transform.position;
     }
 
     // Update is called once per frame
@@ -39,9 +42,9 @@ public class GameController : MonoBehaviour
         levelText.text = level.ToString();
         if(pontos > nextLevel)
         {
+            AudioSource.PlayClipAtPoint(levelUpSound, positionCam);
             level++;
             nextLevel *= 2;
-
         }
     }
 
